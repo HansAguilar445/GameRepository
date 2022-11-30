@@ -1,0 +1,24 @@
+﻿@model VideoGameRepository
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Game List</h1>
+    <ul>
+        @foreach (VideoGame game in Model.VideoGames) 
+        {
+            <li>
+                <h2>@(game.Title) (@(game.Year))</h2>
+                <p>Genre: @game.Category</p>
+                <p>Price: $@game.Price</p>
+                <p>Developed by: @game.Studio.Name</p>
+                <p>Published by: @game.Publisher.Name</p>
+                <p>Available for: @(string.Join(", ", game.Consoles.Select(console => console.Name)))</p>
+                <p>Age Rating: @game.AgeRating</p>
+                <p>Maximum number of players: @game.PlayerCount</p>
+            </li>
+        }
+    </ul>
+</div>
