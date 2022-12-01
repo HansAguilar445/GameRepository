@@ -386,5 +386,10 @@ namespace GameList.Models
             FromSoftware.AddGame(EldenRing);
             pc.AddGame(EldenRing);
         }
+
+        public VideoGame SelectGameByTitle(string title)
+        {
+            return VideoGames.SingleOrDefault(game => game.Title == title);
+        }
     }
 }

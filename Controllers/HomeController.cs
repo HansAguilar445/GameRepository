@@ -24,6 +24,13 @@ namespace GameList.Controllers
             return View();
         }
 
+        public IActionResult GameInfo(string title)
+        {
+            VideoGameRepository repository = new();
+            VideoGame game = repository.SelectGameByTitle(title);  
+            return View(game);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

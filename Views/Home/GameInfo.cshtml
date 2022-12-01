@@ -1,0 +1,12 @@
+﻿@model VideoGame
+@{
+    ViewData["Title"] = Model.Title;
+}
+<h2>@(Model.Title) (@(Model.Year))</h2>
+<p>Genre: @Model.Category</p>
+<p>Price: $@Model.Price</p>
+<p>Developed by: @Model.Studio.Name</p>
+<p>Published by: @Model.Publisher.Name</p>
+<p>Available for: @(string.Join(", ", Model.Consoles.Select(console => console.Name)))</p>
+<p>Age Rating: @Model.AgeRating</p>
+<p>Maximum number of players: @Model.PlayerCount</p>
